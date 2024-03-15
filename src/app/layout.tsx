@@ -18,15 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <nav className="fixed top-0 left-0 right-0 text-[#888888]">
-          <div className="flex flex-wrap gap-5 justify-between px-5 py-[10px] text-[]">
+        <nav className="fixed z-10 top-0 left-0 right-0 text-[#888888] bg-black">
+          <div className="flex flex-wrap gap-4 justify-between px-5 py-[10px] text-[14px]">
             <Link
               className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
               href={"/"}
             >
               Home
             </Link>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/center-a-div"}
