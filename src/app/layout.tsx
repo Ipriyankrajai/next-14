@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Home - Inxtest",
-  description: "Assignment for Inxtest",
+  description: "Exercise for Inxtest",
 };
 
 export default function RootLayout({
@@ -31,19 +31,19 @@ export default function RootLayout({
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/center-a-div"}
               >
-                Assignment 1
+                Exercise 1
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/table "}
               >
-                Assignment 2
+                Exercise 2
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/javascript"}
               >
-                Assignment 3
+                Exercise 3
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
