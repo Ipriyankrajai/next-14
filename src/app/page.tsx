@@ -35,7 +35,8 @@ export default function Home() {
                 <Link href={"/table"} className="underline">
                   Table
                 </Link>{" "}
-                - I have used grid to create Table view
+                - I have used grid to create Table view and position absolute
+                for tooltip.
               </div>
             </li>
             <li className="mt-[10px]">

@@ -31,19 +31,19 @@ export default function RootLayout({
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/center-a-div"}
               >
-                Exercise 1
+                1. Create a div
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/table "}
               >
-                Exercise 2
+                2. Table
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/javascript"}
               >
-                Exercise 3
+                3. Javascript
               </Link>
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
