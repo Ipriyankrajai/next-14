@@ -3,7 +3,7 @@ import React from "react";
 const Table = () => {
   const iterationArray = new Array(12).fill(1);
   return (
-    <div className="bg-white min-h-[100vh] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[50px] pt-[200px] sm:pt-[100px] pb-[50px] px-[50px]">
+    <div className="bg-white min-h-[100vh] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[50px] pt-[100px] pb-[50px] px-[50px]">
       {iterationArray?.map((a, index) => (
         <div
           key={index}

@@ -69,66 +69,73 @@ const Table: React.FC<Props> = ({ data }) => {
           </select>
         </div>
       </div>
-      {tableValue && tableValue?.length ? (
-        <>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableValue.map((st) => (
-                <tr key={st?.id}>
-                  <td>
-                    <Link
-                      href={`https://maps.google.com/?q=${st?.locationY},${st?.locationX}`}
-                      target="_blank"
-                      className="underline"
-                    >
-                      {st?.name}
-                    </Link>
-                  </td>
-                  <td>{st?.locationY}</td>
-                  <td>{st?.locationX}</td>
-                  <td>
-                    {/* Temp uncontrolled component */}
-                    <input
-                      className="border border-black rounded h-[30px] p-1"
-                      value={
-                        (typeof window !== "undefined" &&
-                          localStorage?.getItem(st?.id)) ||
-                        ""
-                      }
-                      onChange={(e) => {
-                        localStorage.setItem(st?.id, e?.target?.value);
-                        setRerender(e?.target?.value);
-                      }}
-                      type="text"
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {!query?.length ? (
-            <div className=" flex gap-2 mx-[20px] my-[20px]">
-              <button disabled={!hasPrevious} onClick={() => setPage(page - 1)}>
-                Previous
-              </button>
-              {page} of {totalPages}
-              <button disabled={!hasNext} onClick={() => setPage(page + 1)}>
-                Next
-              </button>
-            </div>
-          ) : null}
-        </>
-      ) : (
-        <div className="p-5 font-medium">No Result found</div>
-      )}
+      <div className="overflow-hidden">
+        <div className="overflow-auto">
+          {tableValue && tableValue?.length ? (
+            <>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableValue.map((st) => (
+                    <tr key={st?.id}>
+                      <td>
+                        <Link
+                          href={`https://maps.google.com/?q=${st?.locationY},${st?.locationX}`}
+                          target="_blank"
+                          className="underline"
+                        >
+                          {st?.name}
+                        </Link>
+                      </td>
+                      <td>{st?.locationY}</td>
+                      <td>{st?.locationX}</td>
+                      <td>
+                        {/* Temp uncontrolled component */}
+                        <input
+                          className="border border-black rounded h-[30px] p-1"
+                          value={
+                            (typeof window !== "undefined" &&
+                              localStorage?.getItem(st?.id)) ||
+                            ""
+                          }
+                          onChange={(e) => {
+                            localStorage.setItem(st?.id, e?.target?.value);
+                            setRerender(e?.target?.value);
+                          }}
+                          type="text"
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {!query?.length ? (
+                <div className=" flex gap-2 mx-[20px] my-[20px]">
+                  <button
+                    disabled={!hasPrevious}
+                    onClick={() => setPage(page - 1)}
+                  >
+                    Previous
+                  </button>
+                  {page} of {totalPages}
+                  <button disabled={!hasNext} onClick={() => setPage(page + 1)}>
+                    Next
+                  </button>
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <div className="p-5 font-medium">No Result found</div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

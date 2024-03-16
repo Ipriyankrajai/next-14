@@ -26,7 +26,7 @@ export default function RootLayout({
             >
               Home
             </Link>
-            <div className="flex flex-wrap gap-4">
+            <div className="sm:flex flex-wrap gap-4 hidden">
               <Link
                 className="hover:bg-gray-400 hover:text-white transition-all duration-300 rounded-md px-[10px] py-[5px]"
                 href={"/center-a-div"}
