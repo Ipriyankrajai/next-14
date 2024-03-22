@@ -3,6 +3,8 @@ import React, { useMemo, useState } from "react";
 import { StationType } from "../../types";
 import Link from "next/link";
 import { asdOrder, dcsOrder, limit } from "@/utils";
+import TableFormat from "./TableFormat";
+import CardFormat from "./CardFormat";
 
 type Props = {
   data: StationType[];
@@ -11,7 +13,6 @@ const Table: React.FC<Props> = ({ data }) => {
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState(0);
   const [query, setQuery] = useState("");
-  const [_, setRerender] = useState("");
 
   const totalDocs = data.length ?? 0;
   const totalPages = Math.ceil(totalDocs / limit);
@@ -73,51 +74,14 @@ const Table: React.FC<Props> = ({ data }) => {
         <div className="overflow-auto">
           {tableValue && tableValue?.length ? (
             <>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableValue.map((st) => (
-                    <tr key={st?.id}>
-                      <td>
-                        <Link
-                          href={`https://maps.google.com/?q=${st?.locationY},${st?.locationX}`}
-                          target="_blank"
-                          className="underline"
-                        >
-                          {st?.name}
-                        </Link>
-                      </td>
-                      <td>{st?.locationY}</td>
-                      <td>{st?.locationX}</td>
-                      <td>
-                        {/* Temp uncontrolled component */}
-                        <input
-                          className="border border-black rounded h-[30px] p-1"
-                          value={
-                            (typeof window !== "undefined" &&
-                              localStorage?.getItem(st?.id)) ||
-                            ""
-                          }
-                          onChange={(e) => {
-                            localStorage.setItem(st?.id, e?.target?.value);
-                            setRerender(e?.target?.value);
-                          }}
-                          type="text"
-                        />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="table-main-wrap">
+                <TableFormat tableValue={tableValue} />
+              </div>
+              <div className="card-main-wrap">
+                <CardFormat tableValue={tableValue} />
+              </div>
               {!query?.length ? (
-                <div className=" flex gap-2 mx-[20px] my-[20px]">
+                <div className="flex gap-2 mx-[20px] my-[20px]">
                   <button
                     disabled={!hasPrevious}
                     onClick={() => setPage(page - 1)}

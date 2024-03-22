@@ -31,3 +31,49 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.card-main-wrap{
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .card-main-wrap{
+    display: block;
+  }
+  .table-main-wrap{
+    display: none;
+  }
+  .card-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+  .card-wrap{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    }
+
+}
+
+
+.card{
+  background: gray;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.card-label-wrap{
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.label{
+  font-weight: 600;
+}
