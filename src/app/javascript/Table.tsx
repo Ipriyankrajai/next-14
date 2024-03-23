@@ -39,11 +39,11 @@ const Table: React.FC<Props> = ({ data }) => {
 
   return (
     <div>
-      <div className="flex gap-3 flex-wrap p-5">
+      <div className="table-top-wrap">
         <input
           type="text"
           placeholder="Search"
-          className="border border-black rounded h-[40px] p-1 w-[450px]"
+          className="search-input"
           value={query}
           onChange={(e) => {
             setQuery(e?.target?.value);
@@ -53,7 +53,7 @@ const Table: React.FC<Props> = ({ data }) => {
         <div>
           <select
             id="sort"
-            className="border text-sm rounded-lg block w-full p-2.5 bg-black placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            className="select-sort "
             onChange={(e) => {
               setSort(Number(e.target.value));
             }}
@@ -70,8 +70,16 @@ const Table: React.FC<Props> = ({ data }) => {
           </select>
         </div>
       </div>
-      <div className="overflow-hidden">
-        <div className="overflow-auto">
+      <div
+        style={{
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            overflow: "auto",
+          }}
+        >
           {tableValue && tableValue?.length ? (
             <>
               <div className="table-main-wrap">
@@ -81,7 +89,7 @@ const Table: React.FC<Props> = ({ data }) => {
                 <CardFormat tableValue={tableValue} />
               </div>
               {!query?.length ? (
-                <div className="flex gap-2 mx-[20px] my-[20px]">
+                <div className="paginatioon-wrap">
                   <button
                     disabled={!hasPrevious}
                     onClick={() => setPage(page - 1)}
@@ -96,7 +104,7 @@ const Table: React.FC<Props> = ({ data }) => {
               ) : null}
             </>
           ) : (
-            <div className="p-5 font-medium">No Result found</div>
+            <div className="no-result">No Result found</div>
           )}
         </div>
       </div>

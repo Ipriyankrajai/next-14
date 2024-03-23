@@ -77,3 +77,54 @@ flex-wrap: wrap;
 .label{
   font-weight: 600;
 }
+
+
+/* Table */
+.table-top-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+}
+.search-input{
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 4px;
+  width: 450px;
+}
+.select-sort{
+font-size: 14px;
+border: 1px solid black;
+border-radius: 4px;
+width: 100%;
+padding: 10px;
+background-color: black;
+color: white;
+}
+.select-sort:focus{
+  outline-color: #3b82f6;
+    outline-width: 1px;
+    outline-style: solid;
+    outline-offset: 1px;
+    border-color: #3b82f6;
+}
+
+.paginatioon-wrap{
+  display: flex;
+  gap: 8px;
+  margin: 20px;
+}
+
+.no-result{
+  padding: 20px;
+  font-weight: 500;
+}
+
+/* Table format */
+
+.input-notes{
+ border: 1px solid black;
+ border-radius: 4px;
+ height: 30px;
+ padding: 4px;
+}

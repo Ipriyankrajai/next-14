@@ -35,7 +35,7 @@ const TableFormat: React.FC<Props> = ({ tableValue }) => {
               <td>
                 {/* Temp uncontrolled component */}
                 <input
-                  className="border border-black rounded h-[30px] p-1"
+                  className="input-notes"
                   value={
                     (typeof window !== "undefined" &&
                       localStorage?.getItem(st?.id)) ||
